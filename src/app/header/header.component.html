@@ -16,16 +16,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Partida</a>
+          <a class="nav-link" [routerLink]="['/partidas']">
+            Partida
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Ranking</a>
+          <a class="nav-link" [routerLink]="['/rankings']">
+            Ranking
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Filmes</a>
+          <a class="nav-link" [routerLink]="['/filmes',vazio]">
+            Filmes
+          </a>
         </li>
       </ul>
-      <form class="d-flex" (ngSubmit)="buscar()">
+      <form class="d-flex" (ngSubmit)="buscar()" >
         <input
           class="form-control me-2"
           type="search"

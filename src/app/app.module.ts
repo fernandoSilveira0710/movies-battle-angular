@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,7 @@ import { RankingComponent } from './ranking/ranking.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FilmeComponent } from './filme/filme.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -31,7 +32,12 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     CommonModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    RouterModule.forRoot([
+      { path: 'rankings', component: RankingComponent},
+      { path: 'partidas', component: PartidaComponent },
+      { path: 'filmes/:text', component: FilmeComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

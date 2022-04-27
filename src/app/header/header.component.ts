@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,19 +8,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   text = "";
-  @Output() aobuscar = new EventEmitter<any>();
+  vazio = "";
+  //@Output() aobuscar = new EventEmitter<any>();
 
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
 
   buscar(){
-    const textDaBusca = {texto : this.text};
-    this.aobuscar.emit(textDaBusca);
-    console.log('buscando. header.. '+this.text);
+   // const textDaBusca = {texto : this.text};
+   // this.aobuscar.emit(textDaBusca);
+   this.router.navigate(['/filmes',this.text]);
+   console.log('buscando. header.. '+this.text);
   }
 
 }
