@@ -1,0 +1,30 @@
+<!-- FLUTUA NO MEIO DA TELA-->
+<div class="float_center">
+  <div *ngIf="erro">
+    <h3><strong>A busca não retornou nenhum resultado!</strong></h3>
+  </div>
+    <mat-progress-spinner [mode]="'indeterminate'" [color]="color" *ngIf="loading"></mat-progress-spinner>
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-around">
+    <div
+      class="col-md-auto p-2"
+      *ngFor="let search of busca.Search; let i = index"
+    >
+      <div class="card" style="width: 400px">
+        <img class="card-img-top" src="{{ search.Poster }}" alt="Card image" />
+        <div class="card-body">
+          <h4 class="card-title">{{ search.Title }}</h4>
+          <p class="card-text">{{ search.Year }}</p>
+          <a href="#" class="btn btn-primary">Selecionar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

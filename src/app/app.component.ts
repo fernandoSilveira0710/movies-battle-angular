@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'movies-battle';
+  text: any;
+
+  buscar($event: any) {
+    this.text = $event;
+    console.log('buscando appcomp... ' + this.text.texto);
+    console.log(this.text);
+  }
+
 }
+

@@ -1,7 +1,7 @@
 import { Search } from "./search";
 
-export interface Busca {
-  Search : Search[];
-  totalResults : string;
-  Response : boolean;
+export class Busca {
+  public Search!: Search[];
+  public totalResults! : string;
+  public Response! : boolean;
 }

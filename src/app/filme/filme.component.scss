@@ -1,0 +1,17 @@
+.example-card {
+  max-width: 300px;
+  min-width: 300px;
+}
+
+.float_center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
