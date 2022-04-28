@@ -73,7 +73,7 @@ export class FilmeComponent implements OnInit, OnChanges {
     console.log("filtrarBuscas()");
     for (let i = 0; i < buscas.Search.length; i++) {
       if (buscas.Search[i].Poster == "" || buscas.Search[i].Poster == null || buscas.Search[i].Poster == "N/A") {
-        buscas.Search[i].Poster = "../assets/img/img_padrao.png";
+        buscas.Search[i].Poster = "../assets/img/img_padrao.jpeg";
       }
     }
     return buscas;

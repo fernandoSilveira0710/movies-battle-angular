@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, OnChanges, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,23 +6,45 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
   text = "";
   vazio = "";
-  //@Output() aobuscar = new EventEmitter<any>();
+  classe: any = ['', '', ''];
+  rankOrFilm: string = '';
+  vidas = "";
+  login = "Login";
 
 
-  constructor(private router:Router) { }
+  constructor(private router: Router, private elementRef:ElementRef) { }
 
   ngOnInit(): void {
   }
 
+  ngOnChanges() {
 
-  buscar(){
-   // const textDaBusca = {texto : this.text};
-   // this.aobuscar.emit(textDaBusca);
-   this.router.navigate(['/filmes',this.text]);
-   console.log('buscando. header.. '+this.text);
+    console.log('ngOnChanges header');
+  }
+
+  buscar() {
+    this.router.navigate(['/filmes', this.text]);
+    console.log('buscando. header.. ' + this.text);
+  }
+
+  atualizarClasse(position: number) {
+    this.classe = ['', '', ''];
+    this.classe[position] = 'active';
+    this.rankOrFilm = (position === 0 || position === 1) ? 'ok' : '';
+    if(position === 0) {
+      this.atualizarVidas();
+    }
+  }
+
+  atualizarVidas() {
+    this.vidas = "";
+    for (let i = 0; i < 3; i++) {
+      this.vidas += "<img src='https://img.icons8.com/color/30/000000/like--v3.png'/>";
+    }
+    this.vidas += " &nbsp; &nbsp; &nbsp;";
   }
 
 }

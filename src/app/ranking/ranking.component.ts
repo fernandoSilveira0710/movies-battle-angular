@@ -11,7 +11,7 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class RankingComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
 }
