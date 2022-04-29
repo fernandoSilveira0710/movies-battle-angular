@@ -1,4 +1,4 @@
-import { Search } from './../domain/search';
+import { Search } from '../domain/search';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';

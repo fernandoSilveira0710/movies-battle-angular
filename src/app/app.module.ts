@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FilmeComponent } from './filme/filme.component';
 import { HeaderComponent } from './header/header.component';
+import { ConteudoComponent } from './conteudo/conteudo.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { HeaderComponent } from './header/header.component';
     PartidaComponent,
     RankingComponent,
     FilmeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConteudoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,11 +37,6 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    RouterModule.forRoot([
-      { path: 'rankings', component: RankingComponent},
-      { path: 'partidas', component: PartidaComponent },
-      { path: 'filmes/:text', component: FilmeComponent}
-    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

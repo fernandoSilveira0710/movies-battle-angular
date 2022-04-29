@@ -9,4 +9,11 @@ import { EventEmitter } from "@angular/core";
 })
 
 export class PartidaComponent {
+
+  constructor() {
+    console.log("PartidaComponent constructor");
+  }
+
+
+
 }

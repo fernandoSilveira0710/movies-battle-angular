@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   login = "Login";
 
 
-  constructor(private router: Router, private elementRef:ElementRef) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
