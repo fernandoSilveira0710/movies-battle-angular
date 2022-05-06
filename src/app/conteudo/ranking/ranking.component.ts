@@ -1,7 +1,8 @@
-import { Busca } from './../domain/busca';
-import { ApoService } from './../services/apo.service';
+import { Busca } from '../../domain/busca';
+import { ApoService } from '../../services/imdbapi/imdbapi.service';
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { LoginService } from 'src/app/services/login/login.service';
 
 
 @Component({
@@ -12,6 +13,10 @@ import { ThemePalette } from '@angular/material/core';
 export class RankingComponent implements OnInit {
   ngOnInit(): void {
 
+  }
+
+  constructor(serviceLogin: LoginService) {
+    serviceLogin.verificaUserLogado();
   }
 
 }

@@ -28,6 +28,11 @@ export class HeaderComponent implements OnInit, OnChanges {
   buscar() {
     this.router.navigate(['/filmes', this.text]);
     console.log('buscando. header.. ' + this.text);
+    this.limparText();
+  }
+
+  limparText() {
+    this.text = "";
   }
 
   atualizarClasse(position: number) {

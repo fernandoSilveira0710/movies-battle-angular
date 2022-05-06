@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ApoService } from './apo.service';
+import { ApoService } from './imdbapi.service';
 
 describe('ApoService', () => {
   let service: ApoService;

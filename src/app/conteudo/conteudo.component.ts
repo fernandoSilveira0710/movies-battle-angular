@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-conteudo',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConteudoComponent implements OnInit {
 
-  constructor() { }
+  constructor(serviceLogin: LoginService) {
+    serviceLogin.verificaUserLogado();
+  }
 
   ngOnInit(): void {
   }

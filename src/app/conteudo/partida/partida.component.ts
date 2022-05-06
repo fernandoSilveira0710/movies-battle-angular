@@ -1,5 +1,6 @@
 import { Component, Output } from "@angular/core";
 import { EventEmitter } from "@angular/core";
+import { LoginService } from "src/app/services/login/login.service";
 
 
 @Component({
@@ -10,7 +11,9 @@ import { EventEmitter } from "@angular/core";
 
 export class PartidaComponent {
 
-  constructor() {
+  constructor(serviceLogin: LoginService) {
+    serviceLogin.verificaUserLogado();
+
     console.log("PartidaComponent constructor");
   }
 

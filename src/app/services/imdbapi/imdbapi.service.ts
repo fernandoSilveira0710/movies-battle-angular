@@ -1,4 +1,5 @@
-import { Busca } from './../domain/busca';
+import { Const } from './../../utils/const';
+import { Busca } from '../../domain/busca';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, retry, throwError } from 'rxjs';
@@ -9,16 +10,13 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ApoService {
 
-  url = 'http://localhost:8080/api/ranking'; // api rest fake
-  urlDireta = 'https://www.omdbapi.com/?apikey=d329b10e&s=';
-
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
 
 
 
   getRanking(text: string): Observable<Busca> {
-    return this.httpClient.get<Busca>(this.urlDireta + text)
+    return this.httpClient.get<Busca>(Const.URL_API_MOVIES + text)
       .pipe(
         retry(2),
         catchError(this.handleError))

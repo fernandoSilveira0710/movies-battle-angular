@@ -1,9 +1,10 @@
-import { Search } from '../domain/search';
+import { Search } from '../../domain/search';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { ActivatedRoute } from '@angular/router';
-import { Busca } from '../domain/busca';
-import { ApoService } from '../services/apo.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Busca } from '../../domain/busca';
+import { ApoService } from '../../services/imdbapi/imdbapi.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-filme',
@@ -18,14 +19,14 @@ export class FilmeComponent implements OnInit, OnChanges {
   erro!: boolean;
   loading!: boolean;
 
-  constructor(private rankingService: ApoService, private route: ActivatedRoute) {
+  constructor(private rankingService: ApoService, private route: ActivatedRoute, serviceLogin: LoginService) {
+    serviceLogin.verificaUserLogado();
     console.log("constructor()");
   }
 
   ngOnInit(): void {
     console.log("ngOnInit()");
     this.route.paramMap.subscribe(params => {
-
       this.text = params.get('text');
       this.getRankings();
       this.erro = false;
@@ -50,6 +51,7 @@ export class FilmeComponent implements OnInit, OnChanges {
       this.rankingService.getRanking(this.text).subscribe((buscas: Busca) => {
         if (buscas.Search != null) {
           console.log("if");
+          console.table(buscas.Search);
           this.busca = this.filtrarBuscas(buscas);
           this.loading = false;
           this.erro = false;
