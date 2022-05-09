@@ -12,21 +12,37 @@
 
 <div class="container text-center">
   <div class="row border m-1 mt-3">
-      <h1>Continuar Partida</h1>
-      <div class="col-md-5">
-        FILME 1
+    <h1>Continuar Partida</h1>
+    <div class="col-md-5">
+      <div class="card" style="width: 400px">
+        <img
+          class="card-img-top"
+          src="{{ listaFilmes[0].poster }}"
+          alt="Card image"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ listaFilmes[0].title }}</h4>
+          <a href="#" class="btn btn-primary">Selecionar</a>
+        </div>
       </div>
-      <div class="col-md-1">
-        X
+    </div>
+    <div class="col-md-1">X</div>
+    <div class="col-md-5">
+      <div class="card" style="width: 400px">
+        <img
+          class="card-img-top"
+          src="{{ listaFilmes[1].poster }}"
+          alt="Card image"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ listaFilmes[1].title }}</h4>
+          <a href="#" class="btn btn-primary">Selecionar</a>
+        </div>
       </div>
-      <div class="col-md-5">
-        FILME 2
-      </div>
+    </div>
   </div>
   <div class="row border m-1">
     <h1>Top 10 Ranking</h1>
-    <div class="col-md-12">
-      ranking
-    </div>
+    <div class="col-md-12">ranking</div>
   </div>
 </div>

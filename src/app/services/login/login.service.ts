@@ -25,17 +25,17 @@ export class LoginService {
         catchError(this.handleError))
   }
 
-  verificaUserLogado(): boolean {
+  verificaUserLogado(): Usuario | null {
     if (this.getUserLocalStorage() != null) {
       console.log('user logado');
       this._isAuthenticatedSubject.next(true);
-      return true;
+      return this.getUserLocalStorage();
     }
     else {
       console.log('user não logado');
       this.router.navigate(['/login']);
       this._isAuthenticatedSubject.next(false);
-      return false;
+      return null;
     }
   }
   // Manipulação de erros

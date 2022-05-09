@@ -14,10 +14,10 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class FilmeComponent implements OnInit, OnChanges {
   //@Input() text : any;
   text: any;
-  color: ThemePalette = 'accent';
   busca!: Busca;
   erro!: boolean;
   loading!: boolean;
+  color: ThemePalette = 'accent';
 
   constructor(private rankingService: ApoService, private route: ActivatedRoute, serviceLogin: LoginService) {
     serviceLogin.verificaUserLogado();

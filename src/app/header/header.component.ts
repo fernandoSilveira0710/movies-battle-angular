@@ -1,4 +1,3 @@
-import { Const } from './../utils/const';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,6 +14,7 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
   rankOrFilm: string = '';
   vidas = "";
   logado = true;
+  public isCollapsed = true;
 
 
   constructor(private router: Router, private serviceLogin: LoginService) {

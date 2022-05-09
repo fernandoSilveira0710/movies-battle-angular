@@ -56,22 +56,32 @@
                       </div>
 
                       <div class="pt-1 mb-4">
-                        <button
-                          class="btn btn-dark btn-lg btn-block"
-                          type="submit"
-                        >
-                          Login
-                        </button>
-                      </div>
-
-                      <div class="row text-center">
-                        <h2 class="text-primary">
-                          {{ mensagem }}
-                        </h2>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <button
+                              class="btn btn-dark btn-lg btn-block"
+                              type="submit"
+                            >
+                              Login
+                            </button>
+                          </div>
+                          <div class="col-md-2">
+                            <mat-progress-spinner
+                              diameter="40"
+                              [mode]="'indeterminate'"
+                              [color]="color"
+                              strokeWidth="5"
+                              *ngIf="loading"
+                            ></mat-progress-spinner>
+                          </div>
+                          <div class="col-md-7 mt-2">
+                            <h3 class="text-dark">
+                              {{ mensagem }}
+                            </h3>
+                          </div>
+                        </div>
                       </div>
                     </form>
-
-                    <div></div>
                   </div>
                 </div>
               </div>

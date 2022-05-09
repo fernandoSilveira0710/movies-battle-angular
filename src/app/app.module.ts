@@ -20,6 +20,7 @@ import localePt from '@angular/common/locales/pt';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './conteudo/home/home.component';
 
+
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
