@@ -17,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { ConteudoComponent } from './conteudo/conteudo.component';
 import { FooterComponent } from './footer/footer.component';
 import localePt from '@angular/common/locales/pt';
-import { LoginComponent } from './conteudo/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './conteudo/home/home.component';
 
 registerLocaleData(localePt, 'pt');

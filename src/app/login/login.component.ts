@@ -1,5 +1,6 @@
+import { Const } from 'src/app/utils/const';
 import { Usuario } from 'src/app/model/usuario';
-import { LoginService } from './../../services/login/login.service';
+import { LoginService } from '../services/login/login.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -29,9 +30,11 @@ export class LoginComponent implements OnInit {
     console.log('logar LoginComponent');
     this.serviceLogin.getLogin(this.nickname, this.password).subscribe((usuario : Usuario) => {
       if (usuario != null) {
-        LoginService.userLogado = usuario;
+        console.table(usuario);
+        this.serviceLogin.setUserLocalStorage(usuario);
         this.router.navigate(['/home']);
         this.mensagem = "Usuario logado com sucesso";
+
       }
     });
     this.mensagem = "Usuario ou senha incorretos";

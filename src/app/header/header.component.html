@@ -1,4 +1,5 @@
-<!--NAVBAR-->
+<ng-template *ngIf="logado">
+    <!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/home']">Movies Battle</a>
@@ -49,8 +50,12 @@
       <p class="mt-2" [innerHtml]="vidas"></p>
      </div>
      <div *ngIf="rankOrFilm">
-      <button class="btn btn-outline-primary" >{{login}}</button>
+      <form (ngSubmit)="logout()">
+        <button class="btn btn-outline-primary" type="submit">Logout</button>
+      </form>
      </div>
     </div>
   </div>
 </nav>
+
+</ng-template>

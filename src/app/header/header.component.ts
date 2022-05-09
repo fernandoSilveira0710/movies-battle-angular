@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, OnChanges, ElementRef, ViewChild } from '@angular/core';
+import { Const } from './../utils/const';
+import { LoginService } from 'src/app/services/login/login.service';
+import { Component, EventEmitter, OnInit, Output, OnChanges, ElementRef, ViewChild, DoCheck, AfterViewInit, AfterContentChecked, AfterViewChecked, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,24 +8,35 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
   text = "";
   vazio = "";
   classe: any = ['', '', ''];
   rankOrFilm: string = '';
   vidas = "";
-  login = "Login";
+  logado = true;
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private serviceLogin: LoginService) {
+    console.log('constructor header');
+    this.serviceLogin.isAuthenticatedObs.subscribe(isAuthenticated => this.logado = isAuthenticated);
+  }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy header');
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit header');
   }
 
   ngOnChanges() {
-
     console.log('ngOnChanges header');
   }
+  logout() {
+    this.serviceLogin.logout();
+  }
+
 
   buscar() {
     this.router.navigate(['/filmes', this.text]);
@@ -39,14 +52,17 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.classe = ['', '', ''];
     this.classe[position] = 'active';
     this.rankOrFilm = (position === 0 || position === 1) ? 'ok' : '';
-    if(position === 0) {
+    if (position === 0) {
       this.atualizarVidas();
     }
   }
 
   atualizarVidas() {
     this.vidas = "";
-    for (let i = 0; i < 3; i++) {
+    var qtd =  this.serviceLogin.getUserLocalStorage()?.partida.vidas;
+    console.log('qtd vidas: ' + qtd);
+    qtd = (qtd == null) ? 3 : qtd;
+    for (let i = 0; i < qtd; i++) {
       this.vidas += "<img src='https://img.icons8.com/color/30/000000/like--v3.png'/>";
     }
     this.vidas += " &nbsp; &nbsp; &nbsp;";
