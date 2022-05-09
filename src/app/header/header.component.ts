@@ -1,6 +1,6 @@
 import { Const } from './../utils/const';
 import { LoginService } from 'src/app/services/login/login.service';
-import { Component, EventEmitter, OnInit, Output, OnChanges, ElementRef, ViewChild, DoCheck, AfterViewInit, AfterContentChecked, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
 
 
   constructor(private router: Router, private serviceLogin: LoginService) {
-    console.log('constructor header');
     this.serviceLogin.isAuthenticatedObs.subscribe(isAuthenticated => this.logado = isAuthenticated);
+    console.log('constructor header: logado=>'+ this.logado);
   }
 
   ngOnDestroy(): void {

@@ -58,6 +58,7 @@ export class LoginService {
     if (obj == null) {
       return null;
     }
+    this._isAuthenticatedSubject.next(true);
     return JSON.parse(obj);
   }
 
